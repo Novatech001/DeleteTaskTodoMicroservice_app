@@ -1,7 +1,12 @@
 name: Build, Scan and Push React App to ACR
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'DeleteTaskTodoMicroservice_app/**'
+  
 
 permissions:
   id-token: write     # Needed for OIDC Login
@@ -12,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      IMAGE_NAME: addtask # Name of the Docker image
+      IMAGE_NAME: deletetask # Name of the Docker image
       IMAGE_TAG: ${{ github.sha }}
       ACR_NAME: anzacr1
       ACR_LOGIN_SERVER: anzacr1.azurecr.io
