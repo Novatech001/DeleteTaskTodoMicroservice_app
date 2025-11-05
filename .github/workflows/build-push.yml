@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'DeleteTaskTodoMicroservice_app/**'
   
 
 permissions:
